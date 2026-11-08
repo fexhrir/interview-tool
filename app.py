@@ -87,7 +87,7 @@ if st.session_state.setup_complete and not st.session_state.feedback_shown and n
         """,
         icon = "👋"
     )
-    st.markdown("<br><br><br><br><br>", unsafe_allow_html=True) # Kta vet e kam shtu ket rresht me kriju hapsir mes  ktyre psh experienc,skills dhe Your answer.
+    st.markdown("<br><br><br><br><br>", unsafe_allow_html=True) 
 
     client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
@@ -100,7 +100,7 @@ if st.session_state.setup_complete and not st.session_state.feedback_shown and n
                                        f" with experience {st.session_state["experience"]} and skills {st.session_state["skills"]}."
                                        f" You should interview them for the position {st.session_state["level"]} {st.session_state["position"]}"
                                        f" at the company {st.session_state["company"]}. "
-                                       f" NEVER provide examples or extra explanations. Keep your responses under 3 sentences.")#Qita rreshtin e fundit une e shtova vet me kan ma shkurt pergjigja
+                                       f" NEVER provide examples or extra explanations. Keep your responses under 3 sentences.")
         }]
 
 
@@ -164,7 +164,7 @@ if st.session_state.feedback_shown:
         ]
     )
 
-    st.write(feedback_completion.choices[0].message.content.replace("Feedback:", "\n\nFeedback:"))# E shtova .replace("Feedback:", "\n\nFeedback:") me pas hapsir mes feedback edhe Overall ne menyre qe kjo e fundit mos me qen e ngjith me tekstin e feedback-ut.
+    st.write(feedback_completion.choices[0].message.content.replace("Feedback:", "\n\nFeedback:"))
 
     if st.button("Restart Interview", type="primary"):
         streamlit_js_eval(js_expressions="parent.window.location.reload()")
